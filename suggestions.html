@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرفر الحياة الواقعية MTA</title>
+    <title>الاقتراحات - Honesty City NetWork</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -37,46 +37,43 @@
         </ul>
     </nav>
 
-    <header>
-        <h1>MTA Web Side</h1>
-    </header>
+    <main class="suggestions-page">
+        <div id="loginSection" class="login-section">
+            <h2>يجب تسجيل الدخول لإرسال اقتراح</h2>
+            <button onclick="loginWithDiscord()" class="discord-login-btn">
+                <i class="fab fa-discord"></i>
+                تسجيل الدخول باستخدام Discord
+            </button>
+        </div>
 
-    <main>
-        <section class="features">
-            <h2>مميزات السيرفر</h2>
-            <ul>
-                <li>وظائف متعددة ومتنوعة</li>
-                <li>نظام اقتصادي متكامل</li>
-                <li>سيارات واقعية</li>
-                <li>نظام منازل متطور</li>
-                <li>إدارة نشطة ومتفاعلة</li>
-                <li>حياه واقعيه جديده</li>
-            </ul>
-        </section>
+        <div id="suggestionFormSection" class="suggestions-form" style="display: none;">
+            <div class="user-info">
+                <img id="userAvatar" src="" alt="صورة المستخدم" class="user-avatar">
+                <span id="userName"></span>
+                <span id="countdown" class="countdown"></span>
+            </div>
+            <form id="suggestionForm" onsubmit="submitSuggestion(event)">
+                <div class="form-group">
+                    <label for="title">عنوان الاقتراح</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">شرح الاقتراح</label>
+                    <textarea id="description" name="description" rows="6" required></textarea>
+                </div>
 
-      
+                <button type="submit" class="submit-btn">إرسال الاقتراح</button>
+            </form>
+        </div>
     </main>
 
     <footer>
-        <p>تواصل معنا </p>
+        <p>تواصل معنا</p>
         <a href="https://discord.gg/" class="discord-button">Discord</a>
     </footer>
 
-    <script>
-        const musicBtn = document.getElementById('musicToggle');
-        const bgMusic = document.getElementById('bgMusic');
-        let isPlaying = false;
+    <div class="toast-container"></div>
 
-        musicBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicBtn.classList.remove('playing');
-            } else {
-                bgMusic.play();
-                musicBtn.classList.add('playing');
-            }
-            isPlaying = !isPlaying;
-        });
-    </script>
 </body>
 </html> 
